@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final App</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script-->
+</head>
+<body ng-app="finalDemoApp" ng-controller="finalDemoAppCtrl">
+<div class="container">
+    <div class="panel">
+        <h1>The Added Flights</h1>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>index</th>
+                    <th>AIRLINE_ID</th>
+                    <th>CARRIER</th>
+                    <th>ORIGIN_CITY_NAME</th>
+                    <th>DEST_CITY_NAME</th>
+                    <th>DEP_TIME</th>
+                    <th>ARR_TIME</th>
+                    <!--th>ArrivalTime</th-->
+                </tr>
+                </thead>
+                <tr ng-repeat="item in flights">
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.AIRLINE_ID}}</td>
+                    <td>{{item.CARRIER}}</td>
+                    <td>{{item.ORIGIN_CITY_NAME}}</td>
+                    <td>{{item.DEST_CITY_NAME}}</td>
+                    <td>{{item.DEP_TIME}}</td>
+                    <td>{{item.ARR_TIME}}</td>
+                    <!--td>{{item.arrivalTime}}</td-->
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="panel">
+        <h1>Please Complete the Following form with data to add the flights</h1>
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="ident"> Identifier</label>
+                    <input id="ident" class="form-control" type="text" ng-model="newFlight.ident">
+                </div>
+
+                <div class="form-group">
+                    <label for="timestamp"> timestamp</label>
+                    <input id="timestamp" class="form-control" type="text" ng-model="newFlight.timestamp">
+                </div>
+
+                <div class="form-group">
+                    <label for="longitude"> longitude</label>
+                    <input id="longitude" class="form-control" type="text" ng-model="newFlight.longitude">
+                </div>
+                <div class="form-group">
+                    <label for="latitude"> latitude</label>
+                    <input id="latitude" class="form-control" type="text" ng-model="newFlight.latitude">
+                </div>
+                <div class="form-group">
+                    <label for="groundspeed"> groundspeed</label>
+                    <input id="groundspeed" class="form-control" type="text" ng-model="newFlight.groundspeed">
+                </div>
+
+                <div class="form-group">
+                    <label for="heading"> heading</label>
+                    <input id="heading" class="form-control" type="text" ng-model="newFlight.heading">
+                </div>
+
+                <div class="form-group">
+                    <label for="arrivalTime"> arrivalTime</label>
+                    <input id="arrivalTime" class="form-control" type="text" ng-model="newFlight.arrivalTime">
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="saveFlight()"> Save Flight</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="meanStackApp.js"></script>
+</div>
+</body>
+</html>
